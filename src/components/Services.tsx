@@ -137,7 +137,7 @@ export function Services() {
                                 className="group cursor-pointer border-b border-black/5 pb-8 last:border-none"
                                 onClick={() => window.dispatchEvent(new CustomEvent("open-service", { detail: service }))}
                             >
-                                <h3 className={`text-5xl font-display font-extrabold ${service.color} leading-none tracking-tighter mb-4`}>
+                                <h3 className={`text-[2.6rem] font-display font-extrabold ${service.color} leading-none tracking-tight mb-4`}>
                                     {service.name}
                                 </h3>
                                 <p className="text-xs font-body text-muted/60 uppercase tracking-[0.1em] font-bold">

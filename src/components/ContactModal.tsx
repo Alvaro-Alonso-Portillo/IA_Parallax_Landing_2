@@ -50,6 +50,7 @@ export function ContactModal() {
                         exit={{ x: "100%" }}
                         transition={{ type: "spring", damping: 30, stiffness: 300 }}
                         className="relative z-10 bg-white w-full max-w-[480px] h-screen overflow-y-auto p-8 md:p-12 shadow-2xl flex flex-col"
+                        data-lenis-prevent
                     >
                         <button
                             onClick={closeModal}

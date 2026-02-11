@@ -14,6 +14,7 @@ import { CustomCursor } from "@/components/CustomCursor";
 import { ConceptCloud } from "@/components/ConceptCloud";
 import { ContactModal } from "@/components/ContactModal";
 import { ServiceDetailModal } from "@/components/ServiceDetailModal";
+import { LegalModal } from "@/components/LegalModal";
 import Lenis from "@studio-freight/lenis";
 
 export default function Home() {
@@ -47,6 +48,7 @@ export default function Home() {
             <Preloader />
             <ContactModal />
             <ServiceDetailModal />
+            <LegalModal />
             <main className="bg-surface min-h-screen text-cream">
                 <Navbar />
 
