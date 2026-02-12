@@ -43,18 +43,18 @@ const philosophy = [
 export function Values() {
     return (
         <section className="relative py-4 md:py-16 bg-surface overflow-hidden">
-            <div className="max-w-7xl mx-auto px-6 md:px-12">
-                {/* Section Micro-Label */}
+            <div className="max-w-7xl mx-auto px-6">
+                {/* Section Header */}
                 <motion.div
                     initial={{ opacity: 0 }}
                     whileInView={{ opacity: 1 }}
                     viewport={{ once: true }}
-                    className="mb-10 md:mb-12"
+                    className="mb-16 md:mb-24"
                 >
-                    <span className="block text-[10px] font-bold tracking-[0.14em] uppercase text-[#888888] mb-6 md:mb-8">
-                        Cómo pensamos
+                    <span className="block text-[10px] font-bold tracking-[0.14em] uppercase text-[#888888] mb-8">
+                        Filosofía
                     </span>
-                    <h2 className="text-2xl md:text-5xl font-display font-extrabold text-cream leading-[1.1] tracking-tight">
+                    <h2 className="text-2xl md:text-5xl font-display font-extrabold text-[#222] leading-[1.1] tracking-tight">
                         La forma en que<br className="md:hidden" />entendemos el mañana.
                     </h2>
                 </motion.div>

@@ -148,14 +148,14 @@ export function Services() {
                     </div>
                 </div>
 
-                {/* Section Footnote */}
-                <motion.p
-                    initial={{ opacity: 0 }}
-                    whileInView={{ opacity: 1 }}
-                    className="text-[14px] font-normal tracking-[0.04em] text-[#888888] mt-12 uppercase text-left"
-                >
-                    Haz clic en cada área para entender el sistema.
-                </motion.p>
+                 {/* Section Footnote */}
+                 <motion.p
+                     initial={{ opacity: 0 }}
+                     whileInView={{ opacity: 1 }}
+                     className="text-[14px] font-normal tracking-[0.04em] text-[#888888] mt-12 uppercase text-left"
+                 >
+                     Haz clic en cada área para entender el sistema.
+                 </motion.p>
             </div>
         </section>
     );

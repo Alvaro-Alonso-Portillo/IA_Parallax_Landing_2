@@ -36,7 +36,7 @@ export function Hero() {
                         transition={{ duration: 1, delay: 1.2 }}
                         className="text-2xl md:text-5xl lg:text-7xl font-display font-extrabold text-[#222222] tracking-tight -mt-1 md:-mt-2 lg:-mt-4"
                     >
-                        en las Pequeñas Decisiones.
+                        de tus Operaciones.
                     </motion.h2>
 
                     {/* DESCRIPTIVE SUBTITLE */}

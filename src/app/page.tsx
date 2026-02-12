@@ -8,13 +8,13 @@ import { About } from "@/components/About";
 import { Values } from "@/components/Values";
 import { Closing } from "@/components/Closing";
 import { Footer } from "@/components/Footer";
-import { Marquee } from "@/components/Marquee";
 import { Preloader } from "@/components/Preloader";
 import { CustomCursor } from "@/components/CustomCursor";
 import { ConceptCloud } from "@/components/ConceptCloud";
 import { ContactModal } from "@/components/ContactModal";
 import { ServiceDetailModal } from "@/components/ServiceDetailModal";
 import { LegalModal } from "@/components/LegalModal";
+import { MobileCTA } from "@/components/MobileCTA";
 import Lenis from "@studio-freight/lenis";
 
 export default function Home() {
@@ -49,11 +49,13 @@ export default function Home() {
             <ContactModal />
             <ServiceDetailModal />
             <LegalModal />
+            <MobileCTA />
             <main className="bg-surface min-h-screen text-cream">
                 <Navbar />
 
                 {/* 1. IMPACT: HERO - Full height and more */}
                 <Hero />
+
 
                 {/* VISUAL TRANSITION BETWEEN HERO & CONTENT (Max 160px gap allowed) */}
                 <div className="h-24 md:h-32 border-l border-cream/5 ml-[12vw]" />
@@ -80,14 +82,14 @@ export default function Home() {
                 {/* BREATHING SPACE */}
                 <div className="h-8 md:h-12" />
 
-                {/* 7. READING: ABOUT */}
-                <About />
+                 {/* 7. READING: ABOUT */}
+                 <About />
 
-                {/* DEFINITIVE CLOSING SPACE */}
-                <div className="h-8 md:h-12" />
+                 {/* DEFINITIVE CLOSING SPACE */}
+                 <div className="h-8 md:h-12" />
 
-                {/* 8. CLOSING STATEMENT (Section 05) */}
-                <Closing />
+                 {/* 8. CLOSING STATEMENT (Section 05) */}
+                 <Closing />
 
                 <Footer />
             </main>

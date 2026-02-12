@@ -1,129 +1,219 @@
 "use client";
 import { motion } from "framer-motion";
 import React from "react";
+import { ArrowUpRight, Clock, Users, TrendingUp, CheckCircle } from "lucide-react";
 
 const projects = [
     {
         title: "Soporte Autónomo FinTech",
+        client: "FinTech Solutions",
+        industry: "Servicios Financieros",
         year: "2024",
-        result: "78% Reducción Operativa.",
-        descriptor: "en gestión de tareas administrativas",
-        sub: "Resolución instantánea en 5 idiomas.",
-        color: "text-[#3893D8]",
-        label: "AZUL"
+        result: "78% Reducción",
+        metric: "en costes operativos",
+        sub: "Agente IA multilingüe resolviendo consultas 24/7",
+        color: "#3893D8",
+        textColor: "text-[#3893D8]",
+        before: "10 agentes humanos, tiempos de respuesta 4h",
+        after: "1 supervisor + IA, respuesta inmediata",
+        roi: "ROI en 3 meses",
+        testimonial: "Los clientes ni se dan cuenta de que hablan con IA. La satisfacción subió un 23%.",
+        features: ["Soporte en 5 idiomas", "Resolución automática del 85%", "Escalado inteligente"]
     },
     {
         title: "Motor de Precios E-commerce",
+        client: "E-Commerce Pro",
+        industry: "Retail Online",
         year: "2023",
-        result: "+12% Margen Neto.",
-        descriptor: "en clientes B2B",
-        sub: "Optimización continua en tiempo real.",
-        color: "text-[#F3951B]",
-        label: "NARANJA"
+        result: "+12% Margen",
+        metric: "neto recuperado",
+        sub: "Optimización dinámica basada en demanda y competencia",
+        color: "#F3951B",
+        textColor: "text-[#F3951B]",
+        before: "Precios estáticos, pérdida de margen",
+        after: "Pricing dinámico en tiempo real",
+        roi: "+€180k/año",
+        testimonial: "Por fin podemos competir con Amazon sin sacrificar rentabilidad.",
+        features: ["Análisis de competencia", "Elasticidad de demanda", "Promociones automáticas"]
     },
     {
         title: "Análisis Documental Legal",
+        client: "Lex Consultores",
+        industry: "Sector Legal",
         year: "2024",
-        result: "500 páginas / minuto.",
-        descriptor: "procesadas con análisis automático",
-        sub: "Precisión absoluta sin supervisión.",
-        color: "text-[#2F9F72]",
-        label: "VERDE"
+        result: "500 págs/min",
+        metric: "procesadas",
+        sub: "Extracción de cláusulas, riesgos y oportunidades",
+        color: "#2F9F72",
+        textColor: "text-[#2F9F72]",
+        before: "3 abogados, 2 semanas por contrato",
+        after: "Revisión completa en 2 horas",
+        roi: "Ahorro 400h/mes",
+        testimonial: "Analizamos 10 años de contratos en una tarde. Encontramos riesgos que llevaban años ocultos.",
+        features: ["Detección de riesgos", "Extracción de datos", "Comparativa automática"]
     },
 ];
 
 export function Work() {
     return (
-        <section id="proyectos" className="relative py-4 md:py-9 bg-surface overflow-hidden">
+        <section id="proyectos" className="relative py-16 md:py-24 bg-surface overflow-hidden">
             <div className="max-w-7xl mx-auto px-6">
-
-                {/* Section Micro-Label */}
+                {/* Header */}
                 <motion.div
                     initial={{ opacity: 0 }}
                     whileInView={{ opacity: 1 }}
                     viewport={{ once: true }}
-                    className="mb-16 md:mb-24"
+                    className="mb-16 md:mb-20"
                 >
-                    <span className="block text-[10px] font-bold tracking-[0.14em] uppercase text-[#888888] mb-8">
-                        Resultados
+                    <span className="block text-[10px] font-bold tracking-[0.14em] uppercase text-[#888888] mb-4">
+                        Casos de Éxito
                     </span>
-                    <h2 className="text-4xl md:text-5xl lg:text-7xl font-display font-bold text-[#222222] leading-none tracking-tighter">
-                        Casos Reales.
+                    <h2 className="text-4xl md:text-5xl lg:text-6xl font-display font-bold text-[#222222] leading-none tracking-tighter mb-4">
+                        Resultados Reales.
                     </h2>
+                    <p className="text-lg text-[#888] max-w-2xl">
+                        Empresas que ya han transformado sus operaciones con nuestra automatización
+                    </p>
                 </motion.div>
 
-                {/* 2. Gallery Items (Asymmetric & Colorful) */}
-                <div className="space-y-20 md:space-y-32">
+                {/* Projects */}
+                <div className="space-y-16 md:space-y-24">
                     {projects.map((project, i) => (
-                        <div key={i} className={`flex flex-col ${i % 2 === 0 ? "items-start" : "items-end"}`}>
-                            <motion.div
-                                initial={{ opacity: 0, y: 50 }}
-                                whileInView={{ opacity: 1, y: 0 }}
-                                viewport={{ once: true, margin: "-100px" }}
-                                transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
-                                className={`max-w-4xl group ${i % 2 === 0 ? "text-left" : "text-right"}`}
-                            >
-                                {/* Indicator */}
-                                <div className={`mb-6 flex items-center gap-4 text-[10px] font-display font-bold text-muted tracking-widest uppercase opacity-40 group-hover:opacity-100 transition-opacity ${i % 2 === 0 ? "justify-start" : "justify-end"}`}>
-                                    <span>{project.label}</span>
-                                    <span className="w-8 h-px bg-muted/20" />
-                                    <span>{project.year}</span>
-                                </div>
+                        <motion.div
+                            key={i}
+                            initial={{ opacity: 0, y: 50 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true, margin: "-100px" }}
+                            transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+                            className="bg-white rounded-2xl p-6 md:p-10 shadow-lg hover:shadow-xl transition-shadow"
+                        >
+                            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12">
+                                {/* Left: Main Info */}
+                                <div>
+                                    {/* Header */}
+                                    <div className="flex items-center gap-3 mb-6">
+                                        <span 
+                                            className="px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider"
+                                            style={{ backgroundColor: `${project.color}20`, color: project.color }}
+                                        >
+                                            {project.industry}
+                                        </span>
+                                        <span className="text-[10px] font-bold tracking-widest text-[#888]">
+                                            {project.year}
+                                        </span>
+                                    </div>
 
-                                {/* Main Metric / Title */}
-                                <h3 className={`text-4xl md:text-7xl lg:text-9xl font-display font-bold leading-[0.9] tracking-tighter ${project.color} group-hover:scale-[1.02] transition-transform duration-500 break-words`}>
-                                    {project.result}
-                                </h3>
-
-                                {/* Descriptor Line */}
-                                <p className="text-[12px] md:text-[13px] text-[#888] font-body mt-2 mb-8">
-                                    {project.descriptor}
-                                </p>
-
-                                <div className={`flex flex-col md:flex-row md:items-center gap-4 md:gap-12 ${i % 2 === 0 ? "" : "md:flex-row-reverse"}`}>
-                                    <p className="text-xl md:text-2xl font-display font-medium text-[#222222]">
+                                    {/* Title */}
+                                    <h3 className="text-2xl md:text-3xl font-display font-bold text-[#222] mb-2">
                                         {project.title}
-                                    </p>
-                                    <p className="text-xs md:text-sm font-body text-[#899097] max-w-sm">
+                                    </h3>
+                                    <p className="text-sm text-[#888] mb-6">{project.client}</p>
+
+                                    {/* Big Result */}
+                                    <div className="mb-6">
+                                        <div className={`text-5xl md:text-6xl lg:text-7xl font-display font-black ${project.textColor} leading-none`}>
+                                            {project.result}
+                                        </div>
+                                        <div className="text-sm md:text-base text-[#222] font-medium mt-1">
+                                            {project.metric}
+                                        </div>
+                                    </div>
+
+                                    {/* Description */}
+                                    <p className="text-base text-[#666] leading-relaxed mb-6">
                                         {project.sub}
                                     </p>
+
+                                    {/* Features */}
+                                    <div className="flex flex-wrap gap-2">
+                                        {project.features.map((feature, j) => (
+                                            <span 
+                                                key={j}
+                                                className="flex items-center gap-1 text-[10px] font-bold uppercase tracking-wider text-[#666] bg-[#f5f5f5] px-3 py-1.5 rounded-full"
+                                            >
+                                                <CheckCircle className="w-3 h-3" style={{ color: project.color }} />
+                                                {feature}
+                                            </span>
+                                        ))}
+                                    </div>
                                 </div>
-                            </motion.div>
-                        </div>
+
+                                {/* Right: Details */}
+                                <div className="space-y-6">
+                                    {/* Before/After */}
+                                    <div className="bg-[#f8f8f8] rounded-xl p-5">
+                                        <h4 className="text-[10px] font-bold tracking-widest uppercase text-[#888] mb-4">
+                                            Transformación
+                                        </h4>
+                                        <div className="space-y-4">
+                                            <div className="flex items-start gap-3">
+                                                <div className="w-2 h-2 rounded-full bg-red-400 mt-2 flex-shrink-0" />
+                                                <div>
+                                                    <span className="text-[10px] font-bold uppercase tracking-wider text-red-600">Antes</span>
+                                                    <p className="text-sm text-[#666]">{project.before}</p>
+                                                </div>
+                                            </div>
+                                            <div className="h-px bg-[#ddd]" />
+                                            <div className="flex items-start gap-3">
+                                                <div className="w-2 h-2 rounded-full bg-green-500 mt-2 flex-shrink-0" />
+                                                <div>
+                                                    <span className="text-[10px] font-bold uppercase tracking-wider text-green-600">Después</span>
+                                                    <p className="text-sm text-[#222] font-medium">{project.after}</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    {/* ROI */}
+                                    <div className="flex items-center gap-4 p-5 rounded-xl" style={{ backgroundColor: `${project.color}10` }}>
+                                        <TrendingUp className="w-8 h-8" style={{ color: project.color }} />
+                                        <div>
+                                            <div className="text-[10px] font-bold uppercase tracking-wider text-[#888]">Impacto</div>
+                                            <div className="text-lg font-display font-bold" style={{ color: project.color }}>
+                                                {project.roi}
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    {/* Testimonial */}
+                                    <div className="border-l-2 border-[#ddd] pl-4">
+                                        <p className="text-sm text-[#666] italic leading-relaxed">
+                                            "{project.testimonial}"
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </motion.div>
                     ))}
                 </div>
 
-                {/* 2.5 RESULTS CTA ROW */}
+                {/* CTA */}
                 <motion.div
                     initial={{ opacity: 0, y: 30 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
-                    className="mt-32 pt-32 border-t border-[#222222]/5 flex flex-col md:flex-row items-center justify-between gap-8"
+                    className="mt-16 md:mt-24 bg-[#222] rounded-2xl p-8 md:p-12 text-center"
                 >
-                    <h3 className="text-3xl md:text-5xl font-display font-bold text-[#222222]">
-                        ¿Quieres resultados así?
+                    <h3 className="text-2xl md:text-4xl font-display font-bold text-white mb-4">
+                        ¿Quieres resultados como estos?
                     </h3>
-                    <motion.button
-                        whileHover={{ scale: 1.05 }}
-                        whileTap={{ scale: 0.95 }}
-                        onClick={() => window.dispatchEvent(new CustomEvent("open-contact"))}
-                        className="bg-[#C8FF00] text-[#0A0A0A] font-bold py-[16px] px-[40px] rounded-[4px] text-lg shadow-[0_10px_30px_rgba(200,255,0,0.1)]"
-                    >
-                        Hablemos →
-                    </motion.button>
-                </motion.div>
-
-                {/* 3. Poetic Closing */}
-                <motion.div
-                    initial={{ opacity: 0 }}
-                    whileInView={{ opacity: 1 }}
-                    viewport={{ once: true }}
-                    className="mt-24 md:mt-32 flex flex-col items-center text-center"
-                >
-                    <div className="w-1 h-24 bg-[#222222]/5 mb-12" />
-                    <p className="text-xl md:text-3xl font-display font-medium text-muted/60 leading-tight max-w-2xl italic">
-                        "Cada sistema que construimos no es solo código. Es tiempo devuelto a las personas que mueven la empresa."
+                    <p className="text-base md:text-lg text-white/60 mb-8 max-w-2xl mx-auto">
+                        Analizamos tus procesos y te mostramos exactamente dónde la IA puede transformar tu negocio
                     </p>
+                    <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+                        <motion.button
+                            whileHover={{ scale: 1.05 }}
+                            whileTap={{ scale: 0.95 }}
+                            onClick={() => window.dispatchEvent(new CustomEvent("open-contact"))}
+                            className="bg-[#C8FF00] text-[#0A0A0A] font-bold py-4 px-8 rounded-lg text-base flex items-center gap-2 hover:shadow-lg transition-shadow w-full sm:w-auto justify-center"
+                        >
+                            Auditoría Gratuita
+                            <ArrowUpRight className="w-5 h-5" />
+                        </motion.button>
+                        <span className="text-white/40 text-sm">
+                            Sin compromiso • Respuesta en 24h
+                        </span>
+                    </div>
                 </motion.div>
             </div>
         </section>
