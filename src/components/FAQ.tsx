@@ -47,13 +47,13 @@ export function FAQ() {
                     viewport={{ once: true }}
                     className="text-center mb-12 md:mb-16"
                 >
-                    <span className="text-[10px] font-bold tracking-[0.2em] uppercase text-[#C8FF00] mb-4 block">
+                    <span className="text-[10px] font-bold tracking-[0.2em] uppercase text-nGreen mb-4 block">
                         FAQ
                     </span>
-                    <h2 className="text-3xl md:text-5xl font-display font-bold text-cream mb-4">
+                    <h2 className="text-3xl md:text-5xl font-display font-bold text-[#222] mb-4">
                         Preguntas Frecuentes
                     </h2>
-                    <p className="text-base md:text-lg text-cream/60 max-w-2xl mx-auto">
+                    <p className="text-base md:text-lg text-[#888] max-w-2xl mx-auto">
                         Todo lo que necesitas saber sobre nuestra automatización con IA
                     </p>
                 </motion.div>
@@ -67,24 +67,24 @@ export function FAQ() {
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
                             transition={{ delay: i * 0.05 }}
-                            className="border border-cream/10 rounded-lg overflow-hidden bg-white/5"
+                            className="border border-[#222]/10 rounded-lg overflow-hidden bg-white"
                         >
                             <button
                                 onClick={() => setOpenIndex(openIndex === i ? null : i)}
                                 className="w-full flex items-center justify-between p-5 md:p-6 text-left hover:bg-white/5 transition-colors"
                             >
-                                <span className="text-base md:text-lg font-display font-bold text-cream pr-4">
+                                <span className="text-base md:text-lg font-display font-bold text-[#222] pr-4">
                                     {faq.question}
                                 </span>
                                 <span className="flex-shrink-0">
                                     {openIndex === i ? (
-                                        <Minus className="w-5 h-5 text-[#C8FF00]" />
+                                        <Minus className="w-5 h-5 text-nGreen" />
                                     ) : (
-                                        <Plus className="w-5 h-5 text-cream/60" />
+                                        <Plus className="w-5 h-5 text-[#888]" />
                                     )}
                                 </span>
                             </button>
-                            
+
                             <AnimatePresence>
                                 {openIndex === i && (
                                     <motion.div
@@ -94,7 +94,7 @@ export function FAQ() {
                                         transition={{ duration: 0.3 }}
                                         className="overflow-hidden"
                                     >
-                                        <div className="px-5 md:px-6 pb-5 md:pb-6 text-cream/70 font-body leading-relaxed border-t border-cream/10 pt-4">
+                                        <div className="px-5 md:px-6 pb-5 md:pb-6 text-[#555] font-body leading-relaxed border-t border-[#222]/10 pt-4">
                                             {faq.answer}
                                         </div>
                                     </motion.div>
@@ -112,13 +112,13 @@ export function FAQ() {
                     transition={{ delay: 0.5 }}
                     className="mt-12 text-center"
                 >
-                    <div className="inline-flex items-center gap-2 text-cream/60">
+                    <div className="inline-flex items-center gap-2 text-[#888]">
                         <HelpCircle className="w-4 h-4" />
                         <span className="text-sm">
                             ¿Tienes más preguntas?{' '}
-                            <button 
+                            <button
                                 onClick={() => window.dispatchEvent(new CustomEvent("open-contact"))}
-                                className="text-[#C8FF00] hover:underline font-bold"
+                                className="text-nGreen hover:underline font-bold"
                             >
                                 Contáctanos
                             </button>

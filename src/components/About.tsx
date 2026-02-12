@@ -67,7 +67,7 @@ export function About() {
                                 </div>
 
                                 <div>
-                                    <h4 className="text-3xl md:text-4xl font-display font-black text-white mb-2 tracking-tight group-hover:text-nGreen transition-colors duration-300">
+                                    <h4 className="text-3xl md:text-4xl font-display font-black text-cream mb-2 tracking-tight group-hover:text-nGreen transition-colors duration-300">
                                         Alvaro Alonso
                                     </h4>
                                     <p className="text-xs font-bold tracking-widest uppercase text-nGreen mb-6">

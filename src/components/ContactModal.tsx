@@ -14,14 +14,16 @@ export function ContactModal() {
             setIsOpen(false);
             document.body.style.overflow = "";
         };
+        const handleKeyDown = (e: KeyboardEvent) => {
+            if (e.key === "Escape") handleClose();
+        };
 
         window.addEventListener("open-contact", handleOpen);
-        window.addEventListener("keydown", (e) => {
-            if (e.key === "Escape") handleClose();
-        });
+        window.addEventListener("keydown", handleKeyDown);
 
         return () => {
             window.removeEventListener("open-contact", handleOpen);
+            window.removeEventListener("keydown", handleKeyDown);
         };
     }, []);
 

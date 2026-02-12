@@ -6,7 +6,7 @@ import { Check, ArrowRight, Calendar, Mail } from "lucide-react";
 const benefits = [
     "Auditoría gratuita de tus procesos",
     "Propuesta personalizada en 48h",
-    " roadmap de implementación",
+    "Roadmap de implementación",
     "Sin compromiso ni costes ocultos"
 ];
 
@@ -23,7 +23,7 @@ export function Closing() {
                             viewport={{ once: true }}
                             className="mb-6"
                         >
-                            <span className="text-[10px] font-bold tracking-[0.2em] uppercase text-[#C8FF00]">
+                            <span className="text-[10px] font-bold tracking-[0.2em] uppercase text-nGreen">
                                 Empecemos
                             </span>
                         </motion.div>

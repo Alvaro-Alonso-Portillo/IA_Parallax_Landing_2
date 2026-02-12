@@ -94,7 +94,7 @@ export function Footer() {
                 {/* 3. FINAL BOTTOM BAR: Metadata */}
                 <div className="flex flex-col md:flex-row justify-between items-center md:items-end mt-24 border-t border-[#F2F1ED]/10 pt-8 gap-6 md:gap-0">
                     <div className="flex flex-wrap justify-center md:justify-start gap-x-8 gap-y-4 text-[9px] font-body text-[#899097] tracking-widest uppercase">
-                        <span>Madrid, España</span>
+                        <span>Sevilla, España</span>
                         <span>© 2024 IA_PARALLAX</span>
                         <div className="flex gap-6 border-l border-[#F2F1ED]/10 pl-8">
                             <button

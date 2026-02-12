@@ -55,7 +55,7 @@ export function Values() {
                         Filosofía
                     </span>
                     <h2 className="text-2xl md:text-5xl font-display font-extrabold text-[#222] leading-[1.1] tracking-tight">
-                        La forma en que<br className="md:hidden" />entendemos el mañana.
+                        La forma en que{' '}<br className="md:hidden" />entendemos el mañana.
                     </h2>
                 </motion.div>
 
@@ -89,6 +89,9 @@ function ValueCard({ item }: { item: any }) {
             transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
             className={`${item.span} cursor-pointer`}
             onClick={() => setIsExpanded(!isExpanded)}
+            role="button"
+            tabIndex={0}
+            onKeyDown={(e: React.KeyboardEvent) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); setIsExpanded(!isExpanded); } }}
         >
             <div className="bg-white p-8 md:p-12 border-2 border-black rounded-[32px] shadow-sm h-full flex flex-col justify-between group hover:shadow-xl transition-all duration-500 hover:-translate-y-1 overflow-hidden relative">
 

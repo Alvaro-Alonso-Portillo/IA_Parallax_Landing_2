@@ -26,14 +26,16 @@ export function ServiceDetailModal() {
             setService(null);
             document.body.style.overflow = "";
         };
+        const handleKeyDown = (e: KeyboardEvent) => {
+            if (e.key === "Escape") handleClose();
+        };
 
         window.addEventListener("open-service", handleOpen);
-        window.addEventListener("keydown", (e) => {
-            if (e.key === "Escape") handleClose();
-        });
+        window.addEventListener("keydown", handleKeyDown);
 
         return () => {
             window.removeEventListener("open-service", handleOpen);
+            window.removeEventListener("keydown", handleKeyDown);
         };
     }, []);
 

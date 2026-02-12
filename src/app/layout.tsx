@@ -7,8 +7,14 @@ const syne = Syne({ subsets: ["latin"], variable: "--font-syne", weight: ["400",
 const dmSans = DM_Sans({ subsets: ["latin"], variable: "--font-dm", weight: ["300", "400", "500", "600", "700"] });
 
 export const metadata: Metadata = {
-    title: "IA_Parallax | AI Automation Studio",
-    description: "We build autonomous intelligence systems. Not just automation — growth engines.",
+    title: "IA_Parallax | Automatización Inteligente para tu Negocio",
+    description: "Diseñamos sistemas autónomos con IA para optimizar las operaciones de tu negocio. Agentes IA, análisis de datos y estrategia de automatización desde Sevilla.",
+    openGraph: {
+        title: "IA_Parallax | Automatización Inteligente",
+        description: "Automatizamos y optimizamos las operaciones de tu negocio con Agentes IA — para que recuperes el control del tiempo y los márgenes.",
+        locale: "es_ES",
+        type: "website",
+    },
 };
 
 export default function RootLayout({
