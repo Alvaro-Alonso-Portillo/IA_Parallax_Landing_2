@@ -1,10 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import OpenAI from "openai";
 
-const openai = new OpenAI({
-    apiKey: process.env.OPENAI_API_KEY,
-});
-
 const SYSTEM_PROMPT = `Eres el asistente virtual de IA_Parallax, una empresa de automatización inteligente con sede en Sevilla, España. Tu nombre es "Parallax". Responde SIEMPRE en español.
 
 ## TU PERSONALIDAD
@@ -70,6 +66,10 @@ export async function POST(req: NextRequest) {
                 { status: 400 }
             );
         }
+
+        const openai = new OpenAI({
+            apiKey: process.env.OPENAI_API_KEY,
+        });
 
         const completion = await openai.chat.completions.create({
             model: "gpt-4o-mini",
