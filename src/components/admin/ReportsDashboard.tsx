@@ -1,17 +1,26 @@
 "use client";
 import React, { useMemo } from "react";
-import { PieChart, Pie, Cell, BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer } from "recharts";
-import { Users, MessageSquare, TrendingUp, Calendar } from "lucide-react";
+import { PieChart, Pie, Cell, BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer, Legend } from "recharts";
+import { Users, MessageSquare, TrendingUp, Calendar, Eye, Target } from "lucide-react";
 
 interface ReportsDashboardProps {
     sessions: any[];
+    pageViews?: any[];
 }
 
-export function ReportsDashboard({ sessions }: ReportsDashboardProps) {
+export function ReportsDashboard({ sessions, pageViews = [] }: ReportsDashboardProps) {
     // 1. Calculate KPIs
     const totalLeads = sessions.length;
+    const totalVisits = pageViews.length;
+    const uniqueVisitors = new Set(pageViews.map(v => v.session_id)).size;
+
     const interestedLeads = sessions.filter(s => s.status === 'interested' || s.status === 'scheduled').length;
-    const conversionRate = totalLeads > 0 ? ((interestedLeads / totalLeads) * 100).toFixed(1) : "0";
+
+    // Lead Conversion: Leads / Unique Visitors
+    const leadConversion = uniqueVisitors > 0 ? ((totalLeads / uniqueVisitors) * 100).toFixed(1) : "0";
+
+    // Interest Conversion: Interested / Total Leads
+    const interestRate = totalLeads > 0 ? ((interestedLeads / totalLeads) * 100).toFixed(1) : "0";
 
     // 2. Data for Status Pie Chart
     const statusData = useMemo(() => {
@@ -36,10 +45,11 @@ export function ReportsDashboard({ sessions }: ReportsDashboardProps) {
         return days.map(day => {
             return {
                 date: day,
-                count: sessions.filter(s => s.updated_at.startsWith(day)).length
+                leads: sessions.filter(s => s.created_at.startsWith(day)).length,
+                visits: pageViews.filter(v => v.created_at.startsWith(day)).length
             };
         });
-    }, [sessions]);
+    }, [sessions, pageViews]);
 
     return (
         <div className="space-y-6 overflow-y-auto pb-8">
@@ -48,33 +58,34 @@ export function ReportsDashboard({ sessions }: ReportsDashboardProps) {
                 <div className="bg-white p-6 rounded-xl border border-gray-100 shadow-sm">
                     <div className="flex justify-between items-start mb-4">
                         <div className="p-2 bg-blue-50 text-blue-600 rounded-lg">
+                            <Eye size={20} />
+                        </div>
+                    </div>
+                    <h3 className="text-gray-500 text-sm font-medium">Visitas Totales</h3>
+                    <p className="text-3xl font-bold text-[#0A0A0A]">{totalVisits}</p>
+                    <p className="text-xs text-gray-400 mt-1">{uniqueVisitors} visitantes únicos</p>
+                </div>
+
+                <div className="bg-white p-6 rounded-xl border border-gray-100 shadow-sm">
+                    <div className="flex justify-between items-start mb-4">
+                        <div className="p-2 bg-green-50 text-green-600 rounded-lg">
                             <Users size={20} />
                         </div>
-                        <span className="text-xs font-bold text-green-600 bg-green-50 px-2 py-1 rounded">+12%</span>
                     </div>
-                    <h3 className="text-gray-500 text-sm font-medium">Total Leads</h3>
+                    <h3 className="text-gray-500 text-sm font-medium">Leads Generados</h3>
                     <p className="text-3xl font-bold text-[#0A0A0A]">{totalLeads}</p>
+                    <p className="text-xs text-green-600 mt-1">{leadConversion}% conv. visita</p>
                 </div>
 
                 <div className="bg-white p-6 rounded-xl border border-gray-100 shadow-sm">
                     <div className="flex justify-between items-start mb-4">
                         <div className="p-2 bg-[#C8FF00]/20 text-[#5a7a00] rounded-lg">
-                            <TrendingUp size={20} />
-                        </div>
-                        <span className="text-xs font-bold text-gray-400 bg-gray-50 px-2 py-1 rounded">Avg</span>
-                    </div>
-                    <h3 className="text-gray-500 text-sm font-medium">Tasa Conversión</h3>
-                    <p className="text-3xl font-bold text-[#0A0A0A]">{conversionRate}%</p>
-                </div>
-
-                <div className="bg-white p-6 rounded-xl border border-gray-100 shadow-sm">
-                    <div className="flex justify-between items-start mb-4">
-                        <div className="p-2 bg-purple-50 text-purple-600 rounded-lg">
-                            <Calendar size={20} />
+                            <Target size={20} />
                         </div>
                     </div>
-                    <h3 className="text-gray-500 text-sm font-medium">Interesados/Agendados</h3>
+                    <h3 className="text-gray-500 text-sm font-medium">Interés Real</h3>
                     <p className="text-3xl font-bold text-[#0A0A0A]">{interestedLeads}</p>
+                    <p className="text-xs text-[#5a7a00] mt-1">{interestRate}% de los leads</p>
                 </div>
 
                 <div className="bg-white p-6 rounded-xl border border-gray-100 shadow-sm">
@@ -83,16 +94,40 @@ export function ReportsDashboard({ sessions }: ReportsDashboardProps) {
                             <MessageSquare size={20} />
                         </div>
                     </div>
-                    <h3 className="text-gray-500 text-sm font-medium">Chats Activos</h3>
-                    <p className="text-3xl font-bold text-[#0A0A0A]">{sessions.filter(s => s.status === 'new' || s.status === 'contacted').length}</p>
+                    <h3 className="text-gray-500 text-sm font-medium">Tasa Conversión Total</h3>
+                    <p className="text-3xl font-bold text-[#0A0A0A]">
+                        {uniqueVisitors > 0 ? ((interestedLeads / uniqueVisitors) * 100).toFixed(1) : "0"}%
+                    </p>
+                    <p className="text-xs text-gray-400 mt-1">Interesados / Visitantes</p>
                 </div>
             </div>
 
             {/* Charts Row */}
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                {/* Activity Trends */}
+                <div className="bg-white p-6 rounded-xl border border-gray-100 shadow-sm">
+                    <h3 className="text-lg font-bold text-[#0A0A0A] mb-6">Tráfico vs Leads (7 días)</h3>
+                    <div className="h-64">
+                        <ResponsiveContainer width="100%" height="100%">
+                            <BarChart data={activityData}>
+                                <XAxis
+                                    dataKey="date"
+                                    tick={{ fontSize: 10 }}
+                                    tickFormatter={(val: string) => new Date(val).toLocaleDateString(undefined, { weekday: 'short' })}
+                                />
+                                <YAxis />
+                                <Tooltip />
+                                <Legend />
+                                <Bar dataKey="visits" name="Visitas" fill="#E5E7EB" radius={[4, 4, 0, 0]} />
+                                <Bar dataKey="leads" name="Leads" fill="#C8FF00" radius={[4, 4, 0, 0]} />
+                            </BarChart>
+                        </ResponsiveContainer>
+                    </div>
+                </div>
+
                 {/* Status Distribution */}
                 <div className="bg-white p-6 rounded-xl border border-gray-100 shadow-sm">
-                    <h3 className="text-lg font-bold text-[#0A0A0A] mb-6">Distribución de Leads</h3>
+                    <h3 className="text-lg font-bold text-[#0A0A0A] mb-6">Estado de los Leads</h3>
                     <div className="h-64">
                         <ResponsiveContainer width="100%" height="100%">
                             <PieChart>
@@ -121,25 +156,6 @@ export function ReportsDashboard({ sessions }: ReportsDashboardProps) {
                                 <span className="text-xs text-gray-600 capitalize">{entry.name}: {entry.value}</span>
                             </div>
                         ))}
-                    </div>
-                </div>
-
-                {/* Activity Trends */}
-                <div className="bg-white p-6 rounded-xl border border-gray-100 shadow-sm">
-                    <h3 className="text-lg font-bold text-[#0A0A0A] mb-6">Actividad (Últimos 7 días)</h3>
-                    <div className="h-64">
-                        <ResponsiveContainer width="100%" height="100%">
-                            <BarChart data={activityData}>
-                                <XAxis
-                                    dataKey="date"
-                                    tick={{ fontSize: 10 }}
-                                    tickFormatter={(val: string) => new Date(val).toLocaleDateString(undefined, { weekday: 'short' })}
-                                />
-                                <YAxis />
-                                <Tooltip />
-                                <Bar dataKey="count" fill="#0A0A0A" radius={[4, 4, 0, 0]} />
-                            </BarChart>
-                        </ResponsiveContainer>
                     </div>
                 </div>
             </div>

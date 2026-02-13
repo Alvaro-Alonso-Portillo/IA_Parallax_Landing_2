@@ -131,6 +131,9 @@ const jsonLd = {
     ],
 };
 
+import { Suspense } from "react";
+import { AnalyticsTracker } from "@/components/AnalyticsTracker";
+
 export default function RootLayout({
     children,
 }: Readonly<{
@@ -150,6 +153,9 @@ export default function RootLayout({
                 />
             </head>
             <body className={cn(syne.variable, dmSans.variable, "font-body antialiased bg-surface text-cream")}>
+                <Suspense fallback={null}>
+                    <AnalyticsTracker />
+                </Suspense>
                 {children}
             </body>
         </html>
