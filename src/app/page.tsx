@@ -15,6 +15,7 @@ import { ContactModal } from "@/components/ContactModal";
 import { ChatBot } from "@/components/ChatBot";
 import { ServiceDetailModal } from "@/components/ServiceDetailModal";
 import { LegalModal } from "@/components/LegalModal";
+import { ROICalculator } from "@/components/ROICalculator";
 import { motion, useScroll, useTransform } from "framer-motion";
 import Lenis from "@studio-freight/lenis";
 
@@ -96,6 +97,9 @@ export default function Home() {
 
                 {/* DEFINITIVE CLOSING SPACE */}
                 <div className="h-8 md:h-12" />
+
+                {/* 7.5. ROI CALCULATOR */}
+                <ROICalculator />
 
                 {/* 8. CLOSING STATEMENT (Section 05) */}
                 <Closing />
