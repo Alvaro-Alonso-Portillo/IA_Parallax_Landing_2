@@ -68,7 +68,7 @@ export function Hero() {
                     </motion.button>
 
                     <a
-                        href="#servicios"
+                        href="/como-funciona"
                         className="text-[#0A0A0A] text-[10px] md:text-xs font-display font-bold tracking-[0.2em] underline decoration-2 underline-offset-8 hover:opacity-70 transition-all uppercase"
                         style={{ fontVariant: 'small-caps' }}
                     >

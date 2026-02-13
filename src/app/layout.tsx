@@ -9,6 +9,9 @@ const dmSans = DM_Sans({ subsets: ["latin"], variable: "--font-dm", weight: ["30
 export const metadata: Metadata = {
     title: "IA_Parallax | Automatización Inteligente para tu Negocio",
     description: "Diseñamos sistemas autónomos con IA para optimizar las operaciones de tu negocio. Agentes IA, análisis de datos y estrategia de automatización desde Sevilla.",
+    icons: {
+        icon: "https://res.cloudinary.com/drfr1lzlt/image/upload/v1770720436/Replace_purple_and_2k_202602091203-removebg-preview_resice.png",
+    },
     openGraph: {
         title: "IA_Parallax | Automatización Inteligente",
         description: "Automatizamos y optimizamos las operaciones de tu negocio con Agentes IA — para que recuperes el control del tiempo y los márgenes.",
