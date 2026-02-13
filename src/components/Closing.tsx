@@ -112,7 +112,7 @@ export function Closing() {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ delay: 0.5 }}
-                    className="grid grid-cols-3 gap-8 mt-16 pt-12 border-t border-cream/10"
+                    className="grid grid-cols-1 sm:grid-cols-3 gap-8 mt-16 pt-12 border-t border-cream/10"
                 >
                     <div className="text-center">
                         <div className="text-2xl md:text-3xl font-display font-black text-cream">30min</div>

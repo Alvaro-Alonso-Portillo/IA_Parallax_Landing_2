@@ -111,7 +111,7 @@ export function Work() {
 
                                     {/* Big Result */}
                                     <div className="mb-6">
-                                        <div className={`text-5xl md:text-6xl lg:text-7xl font-display font-black ${project.textColor} leading-none`}>
+                                        <div className={`text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-display font-black ${project.textColor} leading-none break-words`}>
                                             {project.result}
                                         </div>
                                         <div className="text-sm md:text-base text-[#222] font-medium mt-1">
