@@ -55,7 +55,15 @@ export function ChatBot() {
             const data = await res.json();
 
             if (res.ok && data.reply) {
-                setMessages((prev) => [...prev, { role: "assistant", content: data.reply }]);
+                let cleanReply = data.reply;
+
+                if (cleanReply.includes("[SHOW_CALENDAR]")) {
+                    cleanReply = cleanReply.replace("[SHOW_CALENDAR]", "").trim();
+                    // Open calendar modal
+                    window.dispatchEvent(new CustomEvent("open-calendar"));
+                }
+
+                setMessages((prev) => [...prev, { role: "assistant", content: cleanReply }]);
             } else {
                 setMessages((prev) => [
                     ...prev,
@@ -113,13 +121,11 @@ export function ChatBot() {
                         <div className="bg-[#0A0A0A] px-5 py-4 flex items-center justify-between flex-shrink-0">
                             <div className="flex items-center gap-3">
                                 <div className="w-8 h-8 bg-[#C8FF00] rounded-full flex items-center justify-center">
-                                    <MessageCircle className="w-4 h-4 text-[#0A0A0A]" />
+                                    <div className="w-2 h-2 rounded-full bg-[#C8FF00] animate-pulse shadow-[0_0_10px_#C8FF00]" />
                                 </div>
                                 <div>
-                                    <h3 className="text-white text-sm font-bold">Álex</h3>
-                                    <p className="text-[#C8FF00] text-[10px] font-medium tracking-wider uppercase">
-                                        Asistente IA
-                                    </p>
+                                    <h3 className="text-white font-bold text-sm leading-none">Álex</h3>
+                                    <span className="text-[10px] text-white/60">IA Assistant</span>
                                 </div>
                             </div>
                             <button
@@ -138,7 +144,7 @@ export function ChatBot() {
                                 <div className="space-y-4">
                                     <div className="bg-[#F5F5F5] rounded-2xl rounded-tl-sm px-4 py-3 max-w-[85%]">
                                         <p className="text-sm text-[#333] leading-relaxed">
-                                            ¡Hola! 👋 Soy Álex, el asistente de IA_Parallax. ¿En qué puedo ayudarte?
+                                            ¡Hola! 👋 Soy Álex, tu experto en automatización. ¿Cómo puedo ayudarte hoy?
                                         </p>
                                     </div>
 
