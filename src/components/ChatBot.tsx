@@ -23,6 +23,18 @@ export function ChatBot() {
     const messagesEndRef = useRef<HTMLDivElement>(null);
     const inputRef = useRef<HTMLInputElement>(null);
 
+    const [sessionId, setSessionId] = useState("");
+
+    /* Initialize Session ID */
+    useEffect(() => {
+        let stored = localStorage.getItem("chat_session_id");
+        if (!stored) {
+            stored = crypto.randomUUID();
+            localStorage.setItem("chat_session_id", stored);
+        }
+        setSessionId(stored);
+    }, []);
+
     /* Auto-scroll to bottom */
     useEffect(() => {
         messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
@@ -49,7 +61,7 @@ export function ChatBot() {
             const res = await fetch("/api/chat", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
-                body: JSON.stringify({ messages: updated }),
+                body: JSON.stringify({ messages: updated, sessionId }),
             });
 
             const data = await res.json();
