@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import { ArrowLeft, ArrowRight, Search, Compass, Zap, TrendingUp, ShieldCheck, MessageCircle, Target, Users, Calendar } from "lucide-react";
 import Link from "next/link";
 import { ContactModal } from "@/components/ContactModal";
+import { ChatBot } from "@/components/ChatBot";
 
 /* ───────── DATA ───────── */
 
@@ -107,6 +108,7 @@ export default function ComoFuncionaClient() {
     return (
         <>
             <ContactModal />
+            <ChatBot />
             <main className="bg-[#F2F1ED] min-h-screen">
                 {/* ── BACK NAVIGATION ── */}
                 <div className="fixed top-0 left-0 right-0 z-50 bg-[#F2F1ED]/80 backdrop-blur-md border-b border-black/5">

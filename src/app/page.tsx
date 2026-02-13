@@ -1,5 +1,5 @@
 "use client";
-import React, { useEffect } from "react";
+import React, { useEffect, useRef } from "react";
 import { Navbar } from "@/components/Navbar";
 import { Hero } from "@/components/Hero";
 import { Services } from "@/components/Services";
@@ -12,11 +12,22 @@ import { Footer } from "@/components/Footer";
 import { Preloader } from "@/components/Preloader";
 import { CustomCursor } from "@/components/CustomCursor";
 import { ContactModal } from "@/components/ContactModal";
+import { ChatBot } from "@/components/ChatBot";
 import { ServiceDetailModal } from "@/components/ServiceDetailModal";
 import { LegalModal } from "@/components/LegalModal";
+import { motion, useScroll, useTransform } from "framer-motion";
 import Lenis from "@studio-freight/lenis";
 
 export default function Home() {
+    const pageRef = useRef<HTMLDivElement>(null);
+    const { scrollYProgress } = useScroll({ target: pageRef, offset: ["start start", "end end"] });
+
+    /* Parallax values for decorative separators */
+    const sep1Y = useTransform(scrollYProgress, [0, 0.3], [0, -30]);
+    const sep2Y = useTransform(scrollYProgress, [0.2, 0.5], [0, -20]);
+    const sep3Y = useTransform(scrollYProgress, [0.4, 0.7], [0, -25]);
+    const sep4Y = useTransform(scrollYProgress, [0.6, 0.9], [0, -15]);
+
     useEffect(() => {
         const lenis = new Lenis({
             duration: 1.8, // Slowed down even more for a heavy, premium feel
@@ -48,37 +59,37 @@ export default function Home() {
             <ContactModal />
             <ServiceDetailModal />
             <LegalModal />
-            <main className="bg-surface min-h-screen text-cream">
+            <ChatBot />
+            <main ref={pageRef} className="bg-surface min-h-screen text-cream">
                 <Navbar />
 
                 {/* 1. IMPACT: HERO - Full height and more */}
                 <Hero />
 
-
-                {/* VISUAL TRANSITION BETWEEN HERO & CONTENT (Max 160px gap allowed) */}
-                <div className="h-24 md:h-32 border-l border-cream/5 ml-[12vw]" />
+                {/* VISUAL TRANSITION BETWEEN HERO & CONTENT — parallax */}
+                <motion.div style={{ y: sep1Y }} className="h-24 md:h-32 border-l border-cream/5 ml-[12vw]" />
 
                 {/* 3. READING: SERVICES */}
                 <Services />
 
-                {/* DECORATIVE SPACER */}
-                <div className="cursor-area h-8 md:h-12 flex items-center justify-center">
+                {/* DECORATIVE SPACER — parallax */}
+                <motion.div style={{ y: sep2Y }} className="cursor-area h-8 md:h-12 flex items-center justify-center">
                     <div className="w-px h-12 bg-cream/10" />
-                </div>
+                </motion.div>
 
                 {/* 4. MASSIVE IMPACT: VALUES (PHILOSOPHY) */}
                 <Values />
 
-                {/* DECORATIVE SPACER */}
-                <div className="h-8 md:h-12 flex items-center justify-center">
+                {/* DECORATIVE SPACER — parallax */}
+                <motion.div style={{ y: sep3Y }} className="h-8 md:h-12 flex items-center justify-center">
                     <div className="w-12 h-px bg-cream/10" />
-                </div>
+                </motion.div>
 
                 {/* 5. READING/DATA: WORK */}
                 <Work />
 
-                {/* BREATHING SPACE */}
-                <div className="h-8 md:h-12" />
+                {/* BREATHING SPACE — parallax */}
+                <motion.div style={{ y: sep4Y }} className="h-8 md:h-12" />
 
                 {/* 7. READING: ABOUT */}
                 <About />

@@ -12,7 +12,7 @@ const benefits = [
 
 export function Closing() {
     return (
-        <section className="relative py-16 md:py-24 bg-surface overflow-hidden">
+        <section className="relative py-16 md:py-24 bg-surface bg-radial-cta overflow-hidden">
             <div className="max-w-7xl mx-auto px-6 md:px-12">
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
                     {/* Left: Value Proposition */}
@@ -92,22 +92,17 @@ export function Closing() {
                                 <ArrowRight className="w-5 h-5" />
                             </motion.button>
 
-                            <motion.button
-                                whileHover={{ scale: 1.02 }}
-                                whileTap={{ scale: 0.98 }}
-                                onClick={() => window.location.href = "mailto:hello@iaparallax.com"}
+                            <a
+                                href="/como-funciona"
                                 className="w-full border-2 border-[#222] text-[#222] font-bold py-4 px-6 rounded-lg text-base flex items-center justify-center gap-2 hover:bg-[#222] hover:text-white transition-all"
                             >
-                                <Mail className="w-5 h-5" />
-                                Enviar Email
-                            </motion.button>
+                                Ver cómo trabajamos
+                                <ArrowRight className="w-4 h-4" />
+                            </a>
                         </div>
 
-                        <div className="mt-6 pt-6 border-t border-gray-200 text-center">
-                            <p className="text-xs text-gray-500">
-                                Respuesta garantizada en menos de 24 horas
-                            </p>
-                        </div>
+
+
                     </motion.div>
                 </div>
 

@@ -14,6 +14,11 @@ export function CustomCursor() {
     const springX = useSpring(mouseX, springConfig);
     const springY = useSpring(mouseY, springConfig);
 
+    /* Glow follows with slower, heavier spring */
+    const glowConfig = { damping: 40, stiffness: 80 };
+    const glowX = useSpring(mouseX, glowConfig);
+    const glowY = useSpring(mouseY, glowConfig);
+
     useEffect(() => {
         const handleMouseMove = (e: MouseEvent) => {
             mouseX.set(e.clientX);
@@ -49,6 +54,16 @@ export function CustomCursor() {
 
     return (
         <>
+            {/* Cursor Glow */}
+            <motion.div
+                className="cursor-glow"
+                style={{
+                    left: glowX,
+                    top: glowY,
+                    opacity: isVisible ? 1 : 0,
+                }}
+            />
+
             <motion.div
                 className={`cursor-dot ${cursorType === "dot" && isVisible ? "active" : ""}`}
                 style={{

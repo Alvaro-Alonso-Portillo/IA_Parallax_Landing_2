@@ -1,5 +1,5 @@
 "use client";
-import React from "react";
+import React, { useState } from "react";
 import { motion } from "framer-motion";
 
 const services = [
@@ -84,6 +84,15 @@ const services = [
 ];
 
 export function Services() {
+    const [tilt, setTilt] = useState<{ id: number; x: number; y: number } | null>(null);
+
+    const handleTiltMove = (e: React.MouseEvent, index: number) => {
+        const card = e.currentTarget.getBoundingClientRect();
+        const x = ((e.clientX - card.left) / card.width - 0.5) * 16; // ±8 degrees
+        const y = ((e.clientY - card.top) / card.height - 0.5) * -16;
+        setTilt({ id: index, x, y });
+    };
+
     return (
         <section className="relative w-full h-auto md:h-[110vh] bg-surface overflow-hidden py-24 md:py-9" id="servicios">
             <div className="relative w-full h-full max-w-7xl mx-auto px-6 flex flex-col justify-center">
@@ -98,8 +107,8 @@ export function Services() {
                 </motion.span>
 
                 <div className="relative flex-1">
-                    {/* Desktop/Tablet Cloud View */}
-                    <div className="hidden md:block absolute inset-0">
+                    {/* Desktop/Tablet Cloud View — 3D perspective */}
+                    <div className="hidden md:block absolute inset-0" style={{ perspective: "1200px" }}>
                         {services.map((service, i) => (
                             <motion.div
                                 key={i}
@@ -109,6 +118,15 @@ export function Services() {
                                 transition={{ duration: 1, delay: i * 0.15 }}
                                 className={`absolute ${service.pos} group cursor-pointer`}
                                 onClick={() => window.dispatchEvent(new CustomEvent("open-service", { detail: service }))}
+                                onMouseMove={(e) => handleTiltMove(e, i)}
+                                onMouseLeave={() => setTilt(null)}
+                                style={{
+                                    transform: tilt?.id === i
+                                        ? `rotateY(${tilt.x}deg) rotateX(${tilt.y}deg)`
+                                        : "rotateY(0deg) rotateX(0deg)",
+                                    transition: tilt?.id === i ? "transform 0.1s ease" : "transform 0.5s ease-out",
+                                    transformStyle: "preserve-3d",
+                                }}
                             >
                                 <motion.div
                                     whileHover={service.hover}

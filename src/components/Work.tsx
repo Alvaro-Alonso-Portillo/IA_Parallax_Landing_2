@@ -56,7 +56,7 @@ const projects = [
 
 export function Work() {
     return (
-        <section id="proyectos" className="relative py-16 md:py-24 bg-surface overflow-hidden">
+        <section id="proyectos" className="relative py-16 md:py-24 bg-surface bg-radial-work bg-blueprint overflow-hidden">
             <div className="max-w-7xl mx-auto px-6">
                 {/* Header */}
                 <motion.div
@@ -92,7 +92,7 @@ export function Work() {
                                 <div>
                                     {/* Header */}
                                     <div className="flex items-center gap-3 mb-6">
-                                        <span 
+                                        <span
                                             className="px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider"
                                             style={{ backgroundColor: `${project.color}20`, color: project.color }}
                                         >
@@ -127,7 +127,7 @@ export function Work() {
                                     {/* Features */}
                                     <div className="flex flex-wrap gap-2">
                                         {project.features.map((feature, j) => (
-                                            <span 
+                                            <span
                                                 key={j}
                                                 className="flex items-center gap-1 text-[10px] font-bold uppercase tracking-wider text-[#666] bg-[#f5f5f5] px-3 py-1.5 rounded-full"
                                             >
@@ -211,7 +211,7 @@ export function Work() {
                             <ArrowUpRight className="w-5 h-5" />
                         </motion.button>
                         <span className="text-white/40 text-sm">
-                            Sin compromiso • Respuesta en 24h
+                            Sin compromiso
                         </span>
                     </div>
                 </motion.div>

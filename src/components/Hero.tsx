@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 
 export function Hero() {
     return (
-        <section className="relative w-full min-h-screen bg-[#F2F1ED] overflow-hidden flex flex-col items-center justify-center pt-32 pb-20">
+        <section className="relative w-full min-h-screen hero-gradient bg-radial-hero bg-arcs overflow-hidden flex flex-col items-center justify-center pt-32 pb-20">
             <div className="w-full max-w-7xl mx-auto px-6 md:px-12 flex flex-col items-center text-center z-10">
 
                 {/* 1. TEXT CONTENT SECTION */}
