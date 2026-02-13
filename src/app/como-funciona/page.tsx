@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { ComoFuncionaClient } from "./ComoFuncionaClient";
+import { ComoFuncionaClient } from "@/app/como-funciona/ComoFuncionaClient";
 
 export const metadata: Metadata = {
     title: "Cómo Funciona — Método de Automatización en 4 Fases",
