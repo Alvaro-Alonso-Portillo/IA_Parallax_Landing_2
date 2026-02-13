@@ -204,7 +204,7 @@ export function Work() {
                         <motion.button
                             whileHover={{ scale: 1.05 }}
                             whileTap={{ scale: 0.95 }}
-                            onClick={() => window.dispatchEvent(new CustomEvent("open-contact"))}
+                            onClick={() => window.dispatchEvent(new CustomEvent("open-calendar"))}
                             className="bg-[#C8FF00] text-[#0A0A0A] font-bold py-4 px-8 rounded-lg text-base flex items-center gap-2 hover:shadow-lg transition-shadow w-full sm:w-auto justify-center"
                         >
                             Auditoría Gratuita

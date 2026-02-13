@@ -84,7 +84,7 @@ export function Closing() {
                             <motion.button
                                 whileHover={{ scale: 1.02 }}
                                 whileTap={{ scale: 0.98 }}
-                                onClick={() => window.dispatchEvent(new CustomEvent("open-contact"))}
+                                onClick={() => window.dispatchEvent(new CustomEvent("open-calendar"))}
                                 className="w-full bg-[#C8FF00] text-[#0A0A0A] font-bold py-4 px-6 rounded-lg text-base flex items-center justify-center gap-2 hover:shadow-lg transition-shadow"
                             >
                                 <Calendar className="w-5 h-5" />

@@ -402,7 +402,7 @@ export function ComoFuncionaClient() {
                                     whileHover={{ scale: 1.03 }}
                                     whileTap={{ scale: 0.97 }}
                                     onClick={() =>
-                                        window.dispatchEvent(new CustomEvent("open-contact"))
+                                        window.dispatchEvent(new CustomEvent("open-calendar"))
                                     }
                                     className="bg-[#C8FF00] text-[#0A0A0A] font-bold py-4 px-10 rounded-[4px] text-lg shadow-[0_15px_40px_rgba(200,255,0,0.15)] w-full sm:w-auto flex items-center justify-center gap-3"
                                 >
