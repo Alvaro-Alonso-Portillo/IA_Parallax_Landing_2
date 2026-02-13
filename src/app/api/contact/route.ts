@@ -36,7 +36,8 @@ export async function POST(req: NextRequest) {
 
         if (process.env.RESEND_API_KEY && process.env.RESEND_API_KEY !== "your_resend_api_key_here" && notificationEmail) {
             try {
-                const emailResult = await resend.emails.send({
+                // 1. Notify Admin
+                await resend.emails.send({
                     from: "IA Parallax <onboarding@resend.dev>",
                     to: notificationEmail,
                     subject: `📩 Nuevo contacto: ${name}`,
@@ -75,7 +76,38 @@ export async function POST(req: NextRequest) {
                         </div>
                     `,
                 });
-                console.log("Resend response:", JSON.stringify(emailResult));
+
+                // 2. Auto-reply to User
+                await resend.emails.send({
+                    from: "Álex (IA Parallax) <onboarding@resend.dev>",
+                    to: email, // Send to the lead
+                    subject: "Hemos recibido tu solicitud - IA Parallax",
+                    html: `
+                        <div style="font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; max-width: 600px; margin: 0 auto; background: #f9f9f9; padding: 40px; border-radius: 8px;">
+                            <h2 style="color: #111; margin-bottom: 24px;">Hola ${name},</h2>
+                            <p style="color: #444; font-size: 16px; line-height: 1.6; margin-bottom: 24px;">
+                                Soy <strong>Álex</strong>, el asistente IA de Álvaro. He procesado tu solicitud correctamente.
+                            </p>
+                            <p style="color: #444; font-size: 16px; line-height: 1.6; margin-bottom: 24px;">
+                                Mientras el equipo humano revisa tu caso (suelen tardar menos de 24h), aquí tienes algunos ejemplos de lo que hemos logrado automatizando empresas en tu sector:
+                            </p>
+                            
+                            <!-- CTA Button -->
+                            <div style="text-align: center; margin: 32px 0;">
+                                <a href="https://iaparallax.com" style="background-color: #0A0A0A; color: #C8FF00; padding: 16px 24px; text-decoration: none; font-weight: bold; border-radius: 6px; display: inline-block;">
+                                    Ver Casos de Éxito PDF
+                                </a>
+                            </div>
+
+                            <p style="color: #666; font-size: 14px; margin-top: 40px; border-top: 1px solid #ddd; padding-top: 24px;">
+                                <em>Este es un mensaje automático, pero la revisión de tu proyecto será 100% humana.</em>
+                            </p>
+                        </div>
+                    `
+                });
+
+                console.log("Emails sent successfully (Notification + Auto-reply)");
+
             } catch (emailError) {
                 // Log but don't fail — the message is already saved in Supabase
                 console.error("Resend email error:", JSON.stringify(emailError, Object.getOwnPropertyNames(emailError as object)));
