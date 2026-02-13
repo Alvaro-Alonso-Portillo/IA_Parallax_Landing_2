@@ -59,8 +59,17 @@ export function ChatBot() {
 
                 if (cleanReply.includes("[SHOW_CALENDAR]")) {
                     cleanReply = cleanReply.replace("[SHOW_CALENDAR]", "").trim();
-                    // Open calendar modal
-                    window.dispatchEvent(new CustomEvent("open-calendar"));
+
+                    // Add message first so user reads it
+                    setMessages((prev) => [...prev, { role: "assistant", content: cleanReply }]);
+
+                    // Wait a bit, then open calendar and close chat
+                    setTimeout(() => {
+                        window.dispatchEvent(new CustomEvent("open-calendar"));
+                        setIsOpen(false);
+                    }, 1500);
+
+                    return; // Stop here to avoid double setting messages
                 }
 
                 setMessages((prev) => [...prev, { role: "assistant", content: cleanReply }]);
