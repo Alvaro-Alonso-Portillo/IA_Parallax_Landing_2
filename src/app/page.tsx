@@ -60,7 +60,7 @@ export default function Home() {
             <ServiceDetailModal />
             <LegalModal />
             <ChatBot />
-            <main ref={pageRef} className="bg-surface min-h-screen text-cream">
+            <main ref={pageRef} className="bg-surface min-h-screen text-cream" aria-label="IA_Parallax — Automatización Inteligente">
                 <Navbar />
 
                 {/* 1. IMPACT: HERO - Full height and more */}

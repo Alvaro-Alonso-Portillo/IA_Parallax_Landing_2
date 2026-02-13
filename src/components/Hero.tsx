@@ -9,11 +9,14 @@ export function Hero() {
 
                 {/* 1. TEXT CONTENT SECTION */}
                 <div className="flex flex-col items-center">
-                    {/* GIANT WORD: CONTROL. */}
-                    <div className="flex flex-nowrap items-center justify-center">
+                    {/* GIANT WORD: CONTROL. — wrapped in h1 for SEO */}
+                    <h1 className="flex flex-nowrap items-center justify-center">
+                        {/* SR-only full text for crawlers */}
+                        <span className="sr-only">CONTROL de tus Operaciones — Automatización Inteligente con IA</span>
                         {["C", "O", "N", "T", "R", "O", "L"].map((letter, i) => (
                             <motion.span
                                 key={i}
+                                aria-hidden="true"
                                 initial={{ opacity: 0, y: 70 }}
                                 animate={{ opacity: 1, y: 0 }}
                                 transition={{
@@ -26,18 +29,19 @@ export function Hero() {
                                 {letter}
                             </motion.span>
                         ))}
-                    </div>
+                    </h1>
 
                     {/* SUBTITLE HEADLINE */}
-                    <motion.h2
+                    <motion.p
                         initial={{ opacity: 0, y: 30 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
                         transition={{ duration: 1, delay: 1.2 }}
+                        aria-hidden="true"
                         className="text-2xl md:text-5xl lg:text-7xl font-display font-extrabold text-[#222222] tracking-tight -mt-1 md:-mt-2 lg:-mt-4"
                     >
                         de tus Operaciones.
-                    </motion.h2>
+                    </motion.p>
 
                     {/* DESCRIPTIVE SUBTITLE */}
                     <motion.p
