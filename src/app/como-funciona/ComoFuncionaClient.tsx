@@ -104,7 +104,7 @@ const stats = [
 
 /* ───────── COMPONENT ───────── */
 
-export default function ComoFuncionaClient() {
+export function ComoFuncionaClient() {
     return (
         <>
             <ContactModal />
