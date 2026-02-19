@@ -53,6 +53,19 @@ export function Footer() {
                                 <X size={18} strokeWidth={1.5} />
                             </a>
                         </div>
+
+                        {/* Corporate Emails */}
+                        <div className="flex flex-col gap-2 mt-8">
+                            <a href="mailto:contacto@iaparallax.com" className="text-[11px] font-body text-[#899097] hover:text-[#C8FF00] transition-colors tracking-widest uppercase">
+                                contacto@iaparallax.com
+                            </a>
+                            <a href="mailto:soporte@iaparallax.com" className="text-[11px] font-body text-[#899097] hover:text-[#C8FF00] transition-colors tracking-widest uppercase">
+                                soporte@iaparallax.com
+                            </a>
+                            <a href="mailto:alvaro.alonso@iaparallax.com" className="text-[11px] font-body text-[#899097] hover:text-[#C8FF00] transition-colors tracking-widest uppercase">
+                                alvaro.alonso@iaparallax.com
+                            </a>
+                        </div>
                     </div>
 
                     {/* Navigation Links */}

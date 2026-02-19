@@ -93,7 +93,7 @@ const jsonLd = {
                 "Empresa de automatización inteligente con IA con sede en Sevilla. Diseñamos agentes IA, automatizamos procesos y optimizamos operaciones de negocio.",
             contactPoint: {
                 "@type": "ContactPoint",
-                email: "info@iaparallax.com",
+                email: "contacto@iaparallax.com",
                 contactType: "customer service",
                 availableLanguage: ["Spanish", "English"],
             },

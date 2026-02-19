@@ -26,7 +26,7 @@ const content: Record<LegalType, LegalContent> = {
             },
             {
                 h: "02. Responsable del Tratamiento",
-                p: "El responsable del tratamiento de los datos personales recogidos en IA_Parallax es Alvaro Alonso Portillo.\n\nTitular: Alvaro Alonso Portillo\nNIF: 44955300Y\nDirección: Calle Castillo de Utrera\nTeléfono: 666426999\nEmail: balonsomorillo@gmail.com"
+                p: "El responsable del tratamiento de los datos personales recogidos en IA_Parallax es Alvaro Alonso Portillo.\n\nTitular: Alvaro Alonso Portillo\nNIF: 44955300Y\nDirección: Calle Castillo de Utrera\nTeléfono: 666426999\nEmail: alvaro.alonso@iaparallax.com"
             },
             {
                 h: "03. Principios Aplicables",
@@ -34,7 +34,7 @@ const content: Record<LegalType, LegalContent> = {
             },
             {
                 h: "04. Derechos del Usuario",
-                p: "Puedes ejercer tus derechos (Acceso, Rectificación, Supresión, Limitación, Portabilidad, Oposición) enviando un email a: balonsomorillo@gmail.com con la referencia 'RGPD-iaparallax.es'."
+                p: "Puedes ejercer tus derechos (Acceso, Rectificación, Supresión, Limitación, Portabilidad, Oposición) enviando un email a: contacto@iaparallax.com con la referencia 'RGPD-iaparallax.es'."
             },
             {
                 h: "05. Secreto y Seguridad",
@@ -55,7 +55,7 @@ const content: Record<LegalType, LegalContent> = {
             },
             {
                 h: "01. Información General",
-                p: "En cumplimiento con el deber de información dispuesto en la Ley 34/2002 de Servicios de la Sociedad de la Información y el Comercio Electrónico (LSSI-CE) de 11 de julio, se facilitan a continuación los siguientes datos:\n\nTitular: Alvaro Alonso Portillo\nNIF: 44955300Y\nDirección: Calle Castillo de Utrera\nTeléfono: 666426999\nEmail: balonsomorillo@gmail.com"
+                p: "En cumplimiento con el deber de información dispuesto en la Ley 34/2002 de Servicios de la Sociedad de la Información y el Comercio Electrónico (LSSI-CE) de 11 de julio, se facilitan a continuación los siguientes datos:\n\nTitular: Alvaro Alonso Portillo\nNIF: 44955300Y\nDirección: Calle Castillo de Utrera\nTeléfono: 666426999\nEmail: alvaro.alonso@iaparallax.com"
             },
             {
                 h: "02. Términos de Uso",

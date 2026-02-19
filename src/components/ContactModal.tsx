@@ -160,8 +160,8 @@ export function ContactModal() {
                                             <button
                                                 onClick={() => setActiveTab("message")}
                                                 className={`flex-1 flex items-center justify-center gap-2 py-3 rounded-md text-sm font-bold transition-all ${activeTab === "message"
-                                                        ? "bg-white text-black shadow-sm"
-                                                        : "text-[#888] hover:text-black"
+                                                    ? "bg-white text-black shadow-sm"
+                                                    : "text-[#888] hover:text-black"
                                                     }`}
                                             >
                                                 <MessageSquare className="w-4 h-4" />
@@ -170,8 +170,8 @@ export function ContactModal() {
                                             <button
                                                 onClick={() => setActiveTab("calendar")}
                                                 className={`flex-1 flex items-center justify-center gap-2 py-3 rounded-md text-sm font-bold transition-all ${activeTab === "calendar"
-                                                        ? "bg-white text-black shadow-sm"
-                                                        : "text-[#888] hover:text-black"
+                                                    ? "bg-white text-black shadow-sm"
+                                                    : "text-[#888] hover:text-black"
                                                     }`}
                                             >
                                                 <Calendar className="w-4 h-4" />
@@ -276,6 +276,21 @@ export function ContactModal() {
                                                         {status === "loading" ? "Enviando..." : "Enviar mensaje →"}
                                                     </button>
                                                 </form>
+
+                                                {/* Direct Emails */}
+                                                <div className="mt-12 pt-8 border-t border-black/5 flex flex-col gap-4">
+                                                    <span className="text-[10px] font-bold tracking-widest uppercase text-[#888888]">O escríbenos directamente:</span>
+                                                    <div className="grid grid-cols-1 gap-3">
+                                                        <a href="mailto:contacto@iaparallax.com" className="text-sm font-bold text-black hover:text-[#C8FF00] transition-colors flex items-center justify-between group">
+                                                            contacto@iaparallax.com
+                                                            <span className="opacity-0 group-hover:opacity-100 transition-opacity">→</span>
+                                                        </a>
+                                                        <a href="mailto:soporte@iaparallax.com" className="text-sm font-bold text-black hover:text-[#C8FF00] transition-colors flex items-center justify-between group">
+                                                            soporte@iaparallax.com
+                                                            <span className="opacity-0 group-hover:opacity-100 transition-opacity">→</span>
+                                                        </a>
+                                                    </div>
+                                                </div>
                                             </motion.div>
                                         )}
 
